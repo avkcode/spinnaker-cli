@@ -1,0 +1,45 @@
+# Mounted into every Spinnaker JVM service as /opt/spinnaker/config/spinnaker-local.yml.
+#
+# Spinnaker services load both spinnaker.yml and <service>.yml, plus the -local
+# profile variant of each (SPRING_PROFILES_ACTIVE=local in the upstream kustomize
+# base), so settings here apply installation-wide.
+#
+# ---------------------------------------------------------------------------
+# Spring Boot Actuator: the operator plane
+# ---------------------------------------------------------------------------
+# kork's SpringBoot1CompatibilityApplicationListener sets
+# management.endpoints.web.base-path to "/" so that /health stays where it has
+# always been. Actuator endpoints therefore live at the service ROOT — /env,
+# /loggers, /metrics — not under /actuator.
+#
+# Spring Boot exposes only /health by default, so `sc svc env|loggers|metrics|
+# threads|configprops|mappings|beans` all return 404 until the endpoints below
+# are listed.
+#
+# LAB / TRUSTED NETWORKS ONLY.
+#   /env and /configprops print resolved configuration values, which include
+#   credentials. /heapdump writes a full heap image. Expose these only where the
+#   service ports are unreachable by untrusted callers; in a shared environment
+#   drop env, configprops and heapdump from the list.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: >-
+          health,info,env,loggers,metrics,threaddump,heapdump,configprops,
+          mappings,beans,caches,scheduledtasks,conditions,httpexchanges,quartz,liquibase
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+    env:
+      show-values: always
+    configprops:
+      show-values: always
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: true
+    git:
+      mode: full

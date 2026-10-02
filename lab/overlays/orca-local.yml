@@ -1,0 +1,41 @@
+# Appended to the upstream kustomize base's overlays/config/files/orca-local.yml.
+#
+# Both blocks below work around behaviour that is correct-but-inconvenient (or in
+# the first case simply broken) in orca 2026.3.0.
+
+# ---------------------------------------------------------------------------
+# failedStages endpoint
+# ---------------------------------------------------------------------------
+# TaskControllerConfigurationProperties declares `tasks.controller.failedStages`
+# as a nested object with no default instance, but TaskController dereferences
+# configurationProperties.failedStages.onlyIncludeStagesThatFailPipelines
+# unconditionally. GET /pipelines/failedStages therefore answers
+# 500 "Cannot get property 'onlyIncludeStagesThatFailPipelines' on null object"
+# on any installation that has not set the block.
+#
+# sc degrades gracefully without this (it derives failed stages from the
+# execution), but setting it enables the real endpoint, which also descends into
+# nested pipeline executions.
+tasks:
+  controller:
+    failedStages:
+      onlyIncludeStagesThatFailPipelines: false
+
+# ---------------------------------------------------------------------------
+# Webhook URL restrictions — LAB ONLY
+# ---------------------------------------------------------------------------
+# orca refuses SSRF-prone webhook targets by default: excludedDomains covers
+# "spinnaker", "local", "localdomain" and "internal", and localhost and verbatim
+# IPs are rejected outright. In-cluster targets such as
+# front50.spinnaker.svc.cluster.local are therefore unusable.
+#
+# That is the right default for a real installation. It is relaxed here so the
+# lab can exercise webhook stages against its own services — which is exactly
+# what the end-to-end suite's recovery test does.
+#
+# These property names were discovered on the running service with:
+#   sc svc configprops orca restriction
+user-configured-url-restrictions:
+  excludedDomains: []
+  rejectLocalhost: false
+  rejectVerbatimIps: false

@@ -1,0 +1,4 @@
+sc
+spinnaker.yaml
+/dist/
+*.test
