@@ -109,7 +109,7 @@ func registerExecutionTools(s *mcp.Server) {
 
 	s.AddTool(mcp.Tool{
 		Name:        "get_execution_stages",
-		Description: "Summarise an execution's stages: status, duration and failure message each, in order. Far smaller than get_execution and usually enough to locate a failure.",
+		Description: "Summarize an execution's stages: status, duration and failure message each, in order. Far smaller than get_execution and usually enough to locate a failure.",
 		ReadOnly:    true,
 		Idempotent:  true,
 		InputSchema: schemaWithContext([]string{"executionId"}, map[string]any{
@@ -252,7 +252,7 @@ func registerExecutionTools(s *mcp.Server) {
 	}{
 		{"cancel_execution", "cancel", "Cancel a running execution.", true,
 			func(c *gate.Client, ctx context.Context, id string) error {
-				return c.CancelExecution(ctx, id, "cancelled via sc mcp", false)
+				return c.CancelExecution(ctx, id, "canceled via sc mcp", false)
 			}},
 		{"pause_execution", "pause", "Pause a running execution at its next stage boundary.", false,
 			func(c *gate.Client, ctx context.Context, id string) error { return c.PauseExecution(ctx, id) }},

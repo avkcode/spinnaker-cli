@@ -271,7 +271,7 @@ func (c *Client) Metric(ctx context.Context, service, name string, tags []string
 		BaseUnit     string `json:"baseUnit"`
 		Measurements []struct {
 			Statistic string `json:"statistic"`
-			// Spring serialises non-finite doubles as the JSON strings "NaN",
+			// Spring serializes non-finite doubles as the JSON strings "NaN",
 			// "Infinity" and "-Infinity", so this cannot be a float64: an idle
 			// gauge would fail the whole decode.
 			Value any `json:"value"`

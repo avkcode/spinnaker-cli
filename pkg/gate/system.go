@@ -141,7 +141,7 @@ func (c *Client) GetBuild(ctx context.Context, buildMaster, job, number string) 
 	return out, c.get(ctx, path, nil, &out)
 }
 
-// ListCIBuilds returns igor's normalised CI build view for a project/repo.
+// ListCIBuilds returns igor's normalized CI build view for a project/repo.
 func (c *Client) ListCIBuilds(ctx context.Context, projectKey, repoSlug string, opts url.Values) ([]any, error) {
 	q := url.Values{}
 	for k, v := range opts {
@@ -203,7 +203,7 @@ func (c *Client) ListCanaryJudges(ctx context.Context) ([]any, error) {
 	return out, c.get(ctx, "/v2/canaries/judges", nil, &out)
 }
 
-// GetCanaryResult returns a canary judgement result.
+// GetCanaryResult returns a canary judgment result.
 func (c *Client) GetCanaryResult(ctx context.Context, canaryExecutionID string) (JSONMap, error) {
 	var out JSONMap
 	return out, c.get(ctx, "/v2/canaries/canary/"+escape(canaryExecutionID), nil, &out)

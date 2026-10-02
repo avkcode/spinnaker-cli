@@ -30,7 +30,7 @@ kustomize, and `git`.
 
 The upstream **kustomize base** from the Spinnaker monorepo
 (`spinnaker/spinnaker//spinnaker-kustomize`). That is the supported install path:
-Halyard was fully deprecated in 2026.1.0 in favour of "spinnaker kustomize", and
+Halyard was fully deprecated in 2026.1.0 in favor of "spinnaker kustomize", and
 the standalone `spinnaker/spinnaker-kustomize` repo has been archived into the
 monorepo.
 
@@ -101,7 +101,7 @@ on any installation that has not set the block — which is an upstream bug, not
 misconfiguration. Setting it enables the endpoint, including its descent into
 nested pipeline executions.
 
-`sc exec failed-stages` works either way: it recognises this failure and derives
+`sc exec failed-stages` works either way: it recognizes this failure and derives
 the failed stages from the execution instead, saying so.
 
 ### `user-configured-url-restrictions`

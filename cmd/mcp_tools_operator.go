@@ -205,7 +205,7 @@ func registerOperatorTools(s *mcp.Server) {
 
 	s.AddTool(mcp.Tool{
 		Name:        "service_thread_summary",
-		Description: "Summarise a service's thread dump: counts by state plus every blocked thread with the lock it waits on and its top frames. This identifies a wedged service — an orca that stopped draining its queue, a clouddriver stuck in a provider call — without reading a multi-megabyte dump.",
+		Description: "Summarize a service's thread dump: counts by state plus every blocked thread with the lock it waits on and its top frames. This identifies a wedged service — an orca that stopped draining its queue, a clouddriver stuck in a provider call — without reading a multi-megabyte dump.",
 		ReadOnly:    true,
 		Script:      true,
 		InputSchema: schemaWithContext([]string{"service"}, map[string]any{

@@ -129,7 +129,7 @@ Use `schemaWithContext` / `mutatingSchema` so every tool accepts `context` (and
 Descriptions are the agent's only documentation — say what the tool is *for* and
 when to prefer it, not just what it wraps.
 
-## Spinnaker behaviour worth knowing
+## Spinnaker behavior worth knowing
 
 These were established against a live 2026.3.0 installation; several are not
 documented anywhere.
@@ -152,7 +152,7 @@ documented anywhere.
 - **Pre-escaped paths must not go into `url.URL.Path`.** That field is the decoded
   path, so `URL.String()` escapes it again and `%20` becomes `%2520`. Both clients
   use `setEscapedPath` to set `RawPath` alongside `Path`.
-- **Spring serialises non-finite doubles as JSON strings** (`"NaN"`,
+- **Spring serializes non-finite doubles as JSON strings** (`"NaN"`,
   `"Infinity"`), so an actuator measurement cannot decode into `float64`.
 - **The restart-stage body is not a context override.** orca passes it only to
   `updatePreconditionStageExpression`, which rewrites `preconditions` on

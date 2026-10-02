@@ -117,7 +117,7 @@ func (c *Client) DeleteApplication(ctx context.Context, name, user string) (stri
 }
 
 // GetApplicationRawResources lists the Kubernetes resources clouddriver has
-// cached for an application that are not modelled as server groups or load
+// cached for an application that are not modeled as server groups or load
 // balancers (ConfigMaps, Secrets, CRDs, …).
 func (c *Client) GetApplicationRawResources(ctx context.Context, app string) (JSONList, error) {
 	var out JSONList

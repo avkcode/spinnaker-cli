@@ -158,7 +158,7 @@ type Request struct {
 	Method string
 	Path   string // relative to the endpoint, with or without a leading slash
 	Query  url.Values
-	Body   any // marshalled as JSON when non-nil; []byte and string are sent verbatim
+	Body   any // marshaled as JSON when non-nil; []byte and string are sent verbatim
 	// Accept overrides the Accept header (defaults to application/json).
 	Accept string
 	// Headers are extra request headers, applied after the defaults so they can

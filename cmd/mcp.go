@@ -106,7 +106,7 @@ func mutatingSchema(required []string, props map[string]any) map[string]any {
 	return schemaWithContext(required, props)
 }
 
-// mcpGate connects to Gate for a tool call, honouring a per-call context override.
+// mcpGate connects to Gate for a tool call, honoring a per-call context override.
 func mcpGate(parent context.Context, args map[string]any) (*gate.Client, context.Context, context.CancelFunc, error) {
 	ctxName := mcp.StringArg(args, "context")
 	if ctxName == "" {

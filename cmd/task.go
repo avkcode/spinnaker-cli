@@ -265,7 +265,7 @@ var taskCancelCmd = &cobra.Command{
 			return err
 		}
 		audit("task.cancel", fmt.Sprint(args))
-		fmt.Fprintf(os.Stderr, "Cancelled %d task(s)\n", len(args))
+		fmt.Fprintf(os.Stderr, "Canceled %d task(s)\n", len(args))
 		return nil
 	},
 }

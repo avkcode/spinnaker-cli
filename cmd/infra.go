@@ -376,7 +376,7 @@ var searchCmd = &cobra.Command{
 
 Gate's search endpoint accepts a single type per call, so searching several types
 means several calls; this command fans out and merges, giving each type its own
-result budget — the behaviour of Deck's global search bar.`,
+result budget — the behavior of Deck's global search bar.`,
 	Args:    cobra.ExactArgs(1),
 	GroupID: GroupCore,
 	Example: `  sc search nginx

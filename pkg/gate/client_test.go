@@ -248,7 +248,7 @@ func TestJudgeStageValidatesAndCapitalises(t *testing.T) {
 	if _, err := c.JudgeStage(ctx, "e", "s", "continue", "proceed"); err != nil {
 		t.Fatal(err)
 	}
-	// orca expects a capitalised judgmentStatus.
+	// orca expects a capitalized judgmentStatus.
 	if body["judgmentStatus"] != "Continue" {
 		t.Errorf("judgmentStatus = %v, want Continue", body["judgmentStatus"])
 	}

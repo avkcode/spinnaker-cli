@@ -10,7 +10,7 @@ import (
 
 var judgeCmd = &cobra.Command{
 	Use:     "judge",
-	Aliases: []string{"judgment", "judgement"},
+	Aliases: []string{"judgment", "judgments"},
 	Short:   "Answer manual judgment stages",
 	Long: `Find and answer manual judgment stages — the stages where a pipeline stops and
 waits for a human.

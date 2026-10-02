@@ -1,6 +1,6 @@
 # Appended to the upstream kustomize base's overlays/config/files/orca-local.yml.
 #
-# Both blocks below work around behaviour that is correct-but-inconvenient (or in
+# Both blocks below work around behavior that is correct-but-inconvenient (or in
 # the first case simply broken) in orca 2026.3.0.
 
 # ---------------------------------------------------------------------------

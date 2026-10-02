@@ -145,7 +145,7 @@ func (c *Client) GetManifest(ctx context.Context, account, location, name string
 // Search
 // ---------------------------------------------------------------------------
 
-// SearchOptions parameterises a clouddriver catalogue search.
+// SearchOptions parameterises a clouddriver catalog search.
 type SearchOptions struct {
 	Query string
 	// Type is a resource type: applications, clusters, serverGroups, instances,

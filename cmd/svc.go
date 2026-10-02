@@ -425,8 +425,8 @@ var svcThreadsFrames int
 var svcThreadsCmd = &cobra.Command{
 	Use:     "threads [service]",
 	Aliases: []string{"threaddump"},
-	Short:   "Summarise a thread dump, highlighting blocked threads",
-	Long: `Summarises a service's thread dump: thread counts by state, plus every blocked
+	Short:   "Summarize a thread dump, highlighting blocked threads",
+	Long: `Summarizes a service's thread dump: thread counts by state, plus every blocked
 thread with the lock it is waiting on and its top frames.
 
 This is what identifies a wedged service — an orca that has stopped draining its
@@ -824,7 +824,7 @@ otherwise need.`,
 		}
 		defer stream.Close()
 		_, err = io.Copy(os.Stdout, stream)
-		// A cancelled follow is the user pressing Ctrl-C, not a failure.
+		// A canceled follow is the user pressing Ctrl-C, not a failure.
 		if err != nil && ctx.Err() != nil {
 			return nil
 		}

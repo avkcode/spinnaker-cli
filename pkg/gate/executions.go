@@ -337,7 +337,7 @@ func (c *Client) JudgeStage(ctx context.Context, executionID, stageID, judgment,
 	if j != JudgmentContinue && j != JudgmentStop {
 		return nil, fmt.Errorf("judgment must be %q or %q, got %q", JudgmentContinue, JudgmentStop, judgment)
 	}
-	// orca expects a capitalised judgmentStatus ("Continue"/"Stop").
+	// orca expects a capitalized judgmentStatus ("Continue"/"Stop").
 	status := strings.ToUpper(j[:1]) + j[1:]
 	patch := JSONMap{"judgmentStatus": status}
 	if input != "" {
@@ -468,7 +468,7 @@ func (c *Client) EvaluateVariables(ctx context.Context, executionID, stageID str
 }
 
 // WaitForExecution polls an execution until it reaches a terminal status, the
-// context is cancelled, or timeout elapses. onUpdate, when non-nil, is called
+// context is canceled, or timeout elapses. onUpdate, when non-nil, is called
 // with every fetched execution so a caller can render progress.
 func (c *Client) WaitForExecution(ctx context.Context, id string, interval, timeout time.Duration, onUpdate func(JSONMap)) (JSONMap, error) {
 	if interval <= 0 {

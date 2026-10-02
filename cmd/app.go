@@ -20,7 +20,7 @@ permissions all hang off one.
 
 An installation shows two kinds. Registered applications have front50 metadata
 (an owner email, a creation time) because someone created them in Spinnaker.
-Inferred applications are synthesised by clouddriver purely from cached
+Inferred applications are synthesized by clouddriver purely from cached
 infrastructure — anything it found running under a Spinnaker-style name. Only
 registered applications can own pipelines, which is why 'sc app list' separates
 them.`,

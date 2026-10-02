@@ -84,7 +84,7 @@ contexts:
 		t.Fatal(err)
 	}
 	if cfg.Server != "https://two:6443" || cfg.BearerToken != "t2" {
-		t.Errorf("named context not honoured: %+v", cfg)
+		t.Errorf("named context not honored: %+v", cfg)
 	}
 }
 

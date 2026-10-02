@@ -20,7 +20,7 @@ Spinnaker's own tooling has thinned out:
   projects, accounts, canary configs, orca tasks) with authentication-only
   configuration — no streaming, no diffing, no judgments, no deployments, no
   operator surface.
-- **Halyard** was fully deprecated in Spinnaker 2026.1.0, in favour of the
+- **Halyard** was fully deprecated in Spinnaker 2026.1.0, in favor of the
   kustomize install. Nothing replaced its operational half.
 - **Gate 2026.3.0 ships an embedded MCP server** (`gate-mcp`), which covers the
   user plane well. It is off by default and, living inside Gate, can only see

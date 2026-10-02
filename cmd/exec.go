@@ -316,14 +316,14 @@ orphaned by an orca restart. That endpoint requires admin permissions.`,
 				return err
 			}
 			audit("exec.force-cancel", args[0])
-			fmt.Fprintf(os.Stderr, "Force-cancelled execution %s\n", args[0])
+			fmt.Fprintf(os.Stderr, "Force-canceled execution %s\n", args[0])
 			return nil
 		}
 		if err := client.CancelExecution(ctx, args[0], execCancelReason, false); err != nil {
 			return err
 		}
 		audit("exec.cancel", args[0])
-		fmt.Fprintf(os.Stderr, "Cancelled execution %s\n", args[0])
+		fmt.Fprintf(os.Stderr, "Canceled execution %s\n", args[0])
 		return nil
 	},
 }
@@ -685,7 +685,7 @@ func failureDetail(exception string) string {
 	return exception
 }
 
-// isFailedStagesConfigBug recognises the orca NPE caused by an unset
+// isFailedStagesConfigBug recognizes the orca NPE caused by an unset
 // tasks.controller.failedStages block.
 func isFailedStagesConfigBug(err error) bool {
 	msg := err.Error()

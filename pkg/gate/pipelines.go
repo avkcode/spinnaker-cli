@@ -39,7 +39,7 @@ func (c *Client) GetPipelineConfigHistory(ctx context.Context, configID string, 
 // SavePipelineConfig creates or updates a pipeline definition. An "id" in the
 // body makes this an update; without one front50 assigns a new id.
 //
-// Gate returns an empty body here, so success is signalled by the absence of an
+// Gate returns an empty body here, so success is signaled by the absence of an
 // error.
 func (c *Client) SavePipelineConfig(ctx context.Context, pipeline JSONMap) error {
 	if pipeline["application"] == nil || pipeline["name"] == nil {
